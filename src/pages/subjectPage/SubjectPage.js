@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import s from "./subjectPage.module.css";
 import { useMatch } from "react-router-dom";
-import { subjectsInfo } from "../../data/data";
+import { notStringTypes, subjectsInfo } from "../../data/data";
 
 function SubjectPage() {
   const match = useMatch("subjects/:subject");
@@ -36,8 +36,9 @@ function SubjectPage() {
             <div key={key} className={s.sbt}>
               <h2>{sbt.title}</h2>
               {sbt.structure.map((cont, key) => {
-                if (cont.type === "text")
-                  return <p key={key}>{cont.content}</p>;
+                {console.log(typeof cont)}
+                if (cont.type === "text" || !notStringTypes.includes(cont.type))
+                  return <p key={key}>{cont.content || cont}</p>;
                 else if (cont.type === "image")
                   return (
                     <div className={s.picture} key={key}>

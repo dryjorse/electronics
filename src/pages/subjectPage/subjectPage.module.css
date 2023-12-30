@@ -24,6 +24,11 @@
   font-size: 12px;
   line-height: 17px;
 }
+.sbt a,
+.main a {
+  color: #5451b0 !important;
+  text-decoration: underline !important;
+}
 .main img {
   width: 100%;
 }
